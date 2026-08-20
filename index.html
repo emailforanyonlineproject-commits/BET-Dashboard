@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BET Learner Registration System</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+</head>
+<body>
+
+<div class="container">
+  <div class="card">
+
+    <h1>
+      <img src="BET Logo.jpeg" alt="Logo" style="width: 80px; height: 80px; vertical-align: middle; margin-right: 20px;">
+      BET Learner Management
+    </h1>
+
+    <!-- MODE TABS -->
+    <div class="tabs">
+      <button type="button" class="tab-btn active" data-mode="register">Register</button>
+      <button type="button" class="tab-btn" data-mode="renew">Renew</button>
+      <button type="button" class="tab-btn" data-mode="remove">Remove</button>
+    </div>
+
+    <!-- LOOKUP BAR (Renew & Remove only) -->
+    <div class="lookup-bar" id="lookupBar" style="display:none;">
+      <div class="input-group" style="flex:1;">
+        <label for="lookupID">Learner ID</label>
+        <input type="text" id="lookupID" placeholder="e.g. BET-LRN-0001" required>
+      </div>
+      <button type="button" id="lookupBtn">
+        <i class="fa-solid fa-magnifying-glass"></i> Find Learner
+      </button>
+    </div>
+    <div id="lookupResult"></div>
+
+    <!-- ============ REGISTER FORM ============ -->
+    <form id="registrationForm" autocomplete="off">
+      <div class="grid">
+
+        <div class="input-group">
+          <label for="assistantName">Assistant</label>
+          <select id="assistantName" required>
+            <option value="">Select Assistant</option>
+            <option>Mrs. Saran BET</option><option>MADELEINE</option>
+            <option>Mrs Prisca N'GUESSAN</option><option>HONORINE</option>
+            <option>MARCEL</option><option>Blanche</option><option>Alain</option>
+            <option>Joelle</option><option>Mrs Kouame</option><option>Grace Veketo</option>
+            <option>Rosy Kouacou</option><option>Ephereme</option><option>Deborah</option>
+            <option>Marie-Ange</option><option>Fatou</option><option>Geneviève Aka</option>
+            <option>Daisy</option><option>Andrea</option><option>Ruth</option>
+            <option>Mariam</option><option>Kady</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label for="learnerName">Learner Name</label>
+          <input type="text" id="learnerName" placeholder="Enter learner's full name" required>
+        </div>
+
+        <div class="input-group">
+          <label for="contact">Learner Contact</label>
+          <input type="text" id="contact" placeholder="+225..." required>
+        </div>
+
+        <div class="input-group">
+          <label for="email">Learner Email</label>
+          <input type="email" id="email" placeholder="example@email.com">
+        </div>
+
+        <div class="input-group">
+          <label for="level">Learner Level</label>
+          <select id="level" required>
+            <option value="">Select Level</option>
+            <option>A1</option><option>Kids/Teens</option><option>A1+</option>
+            <option>A2</option><option>B1</option><option>B2</option>
+            <option>C1</option><option>C2</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label for="startDate">Start Date</label>
+          <input type="date" id="startDate" required>
+        </div>
+
+        <div class="input-group">
+          <label for="endDate">End Date</label>
+          <input type="date" id="endDate" required>
+        </div>
+
+        <div class="input-group">
+          <label for="renewalDate">Renewal Date</label>
+          <input type="date" id="renewalDate">
+        </div>
+
+        <div class="input-group">
+          <label for="months">Number of Months</label>
+          <input type="number" id="months" min="1" max="24" placeholder="4" required>
+        </div>
+
+        <div class="input-group">
+          <label for="coach">Coach Name</label>
+          <input type="text" id="coach" placeholder="Enter coach name" required>
+        </div>
+
+        <div class="input-group">
+          <label for="contractID">Contract ID</label>
+          <input type="text" id="contractID" placeholder="Example: 2026-001" required>
+        </div>
+
+        <div class="input-group">
+          <label for="contractType">Contract Type</label>
+          <select id="contractType" required>
+            <option value="">Select Contract Type</option>
+            <option>Online Group Class</option><option>Online Private Class</option>
+            <option>Online Kid Program</option><option>Physical Bouaké</option>
+            <option>Physical Angré</option><option>Physical Deux Plateaux</option>
+            <option>Physical Yopougon</option><option>Physical Koumassi</option>
+            <option>Physical Abatta</option><option>Physical Kids Program Bouaké</option>
+            <option>Physical Kids Program Angré</option><option>Physical Kids Program Deux Plateaux</option>
+            <option>Physical Kids Program Yopougon</option><option>Physical Kids Program Koumassi</option>
+            <option>Physical Kids Program Abatta</option><option>Home Tutors</option>
+            <option>Corporate Training</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label for="center">Center</label>
+          <select id="center" required>
+            <option value="">Select Center</option>
+            <option>Yopougon</option><option>Abatta</option><option>Koumassi</option>
+            <option>Angré</option><option>Bouaké</option><option>Deux Plateaux</option>
+            <option>Online</option><option>Office</option><option>Home</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label for="days">Days</label>
+          <input type="text" id="days" placeholder="Monday, Wednesday" required>
+        </div>
+
+        <div class="input-group">
+          <label for="time">Time</label>
+          <input type="text" id="time" placeholder="6:30 PM - 8:30 PM" required>
+        </div>
+
+        <div class="input-group">
+          <label for="status">Status</label>
+          <select id="status" required>
+            <option value="">Select Status</option>
+            <option selected>Active</option><option>Inactive</option>
+            <option>Break</option><option>Completed</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label for="certificateIssued">Certificate Issued</label>
+          <select id="certificateIssued">
+            <option value="No" selected>No</option>
+            <option value="Yes">Yes</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label for="certificateDate">Certificate Date</label>
+          <input type="date" id="certificateDate">
+        </div>
+
+      </div>
+
+      <!-- Remove-only reason field -->
+      <div class="input-group" id="reasonGroup" style="display:none; margin-top:20px;">
+        <label for="reason">Reason for Removal</label>
+        <input type="text" id="reason" placeholder="e.g. Contract ended, transferred, dropped out">
+      </div>
+
+      <button type="submit" id="submitBtn">
+        <i class="fa-solid fa-paper-plane"></i>
+        <span id="submitBtnText">Register Learner</span>
+      </button>
+    </form>
+
+    <div id="message"></div>
+
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

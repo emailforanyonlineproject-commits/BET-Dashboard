@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BET Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+<div class="container dash-container">
+
+  <div class="dash-header">
+    <h1><i class="fa-solid fa-chart-line"></i> BET Performance Dashboard</h1>
+    <div class="dash-actions">
+      <span id="lastUpdated"></span>
+      <button id="refreshBtn"><i class="fa-solid fa-rotate"></i> Refresh</button>
+    </div>
+  </div>
+
+  <div id="loadingState" class="loading">Loading dashboard data...</div>
+  <div id="errorState" class="error-state" style="display:none;"></div>
+
+  <div id="dashboardContent" style="display:none;">
+
+    <!-- KPI CARDS -->
+    <div class="kpi-grid" id="kpiGrid"></div>
+
+    <!-- MONTHLY TREND CHART -->
+    <div class="dash-card">
+      <h2>Monthly Trend — Registrations, Renewals, Removals, Certificates</h2>
+      <div class="chart-wrap"><canvas id="trendChart"></canvas></div>
+    </div>
+
+    <div class="dash-row">
+      <!-- CENTER LEADERBOARD -->
+      <div class="dash-card half">
+        <h2>Center Leaderboard</h2>
+        <div class="leader-grid" id="leaderGrid"></div>
+      </div>
+
+      <!-- CENTER COMPARISON CHART -->
+      <div class="dash-card half">
+        <h2>Center Comparison</h2>
+        <div class="chart-wrap"><canvas id="centerChart"></canvas></div>
+      </div>
+    </div>
+
+    <!-- COACH TABLE -->
+    <div class="dash-card">
+      <h2>Coach Contracts — Monthly &amp; Overall</h2>
+      <div class="table-wrap">
+        <table id="coachTable">
+          <thead><tr id="coachTableHead"></tr></thead>
+          <tbody id="coachTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="dashboard.js"></script>
+</body>
+</html>
